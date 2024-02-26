@@ -29,7 +29,7 @@ LOOP_DELAY=5
 
 ## Add your DNS here
 
-declare -a HOSTS=('124.6.181.12' '124.6.181.4' '124.6.181.44' '124.6.181.36' '124.6.181.20' '124.6.181.31' '121.54.70.166' '121.54.70.130' '112.198.115.36')
+declare -a HOSTS=('124.6.181.12' '124.6.181.44' '124.6.181.36' '124.6.181.4' 10.0.0.1' '124.6.181.36' '124.6.181.20' '121.54.70.166' '121.54.70.130' '112.198.115.36')
 
 
 
@@ -82,42 +82,7 @@ if [ ! $(command -v ${_DIG}) ]; then
  "\$DIG_EXEC & \$CUSTOM_DIG variable inside $( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/$(basename "$0") file.\n" && exit 1
 
 fi
-check(){
-  local border_color="\e[95m"  # Light magenta color
-  local success_color="\e[92m"  # Light green color
-  local fail_color="\e[91m"    # Light red color
-  local header_color="\e[96m"  # Light cyan color
-  local reset_color="\e[0m"    # Reset to default terminal color
-  local padding="  "            # Padding for aesthetic
 
-  # Header
-  echo -e "${border_color}┌──────────────────────────────────────────────┐${reset_color}"
-  echo -e "${border_color}│${header_color}${padding}DNS Status Check Results${padding}${reset_color}"
-  echo -e "${border_color}├──────────────────────────────────────────────┤${reset_color}"
-  
-  # Results
-  for T in "${DNS_IPS[@]}"; do
-    for R in "${NAME_SERVERS[@]}"; do
-      result=$(${_DIG} @${T} ${R} +short)
-      if [ -z "$result" ]; then
-        STATUS="${success_color}Success${reset_color}"
-      else
-        STATUS="${fail_color}Failed${reset_color}"
-      fi
-      echo -e "${border_color}│${padding}${reset_color}DNS IP: ${T}${padding}${reset_color}"
-      echo -e "${border_color}│${padding}NameServer: ${R}${padding}${reset_color}"
-      echo -e "${border_color}│${padding}Status: ${STATUS}${padding}${reset_color}"
-    done
-  done
-
-  # Check count and Loop Delay
-  echo -e "${border_color}├──────────────────────────────────────────────┤${reset_color}"
-  echo -e "${border_color}│${padding}${header_color}Check count: ${count}${padding}${reset_color}"
-  echo -e "${border_color}│${padding}Loop Delay: ${LOOP_DELAY} seconds${padding}${reset_color}"
- 
-  # Footer
-  echo -e "${border_color}└──────────────────────────────────────────────┘${reset_color}"
-}
 endscript() {
 
  unset NS NS1 NS2 NS3 NS4 NS5 NS6 NS7 NS8 NS9 NS10 NS11 NS12 NS13 NS14 NS15 NS16 NS17 NS18 NS19 NS20 NS21 NS22 NS23 NS24 A LOOP_DELAY HOSTS _DIG DIG_EXEC CUSTOM_DIG T R M
