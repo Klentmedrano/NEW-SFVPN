@@ -8,18 +8,18 @@
 
 ## Run this script excluded to your VPN tunnel (split vpn tunneling mode)
 
-## run command: ./globe-klent03.sh l
+## run command: ./globe-klent04.sh l
 
 
 
 ## Your DNSTT Nameserver & your Domain `A` Record
 
-NS='dns.sgae01.fcafessh.net'
-NS1='ns.kaisen.ismaelsakalam.online'
-NS2=''
-NS3=''
-NS4=''
-A=''
+NS='ns.lzpfmu.ce7venssh.shop'
+NS1='dns.sgae01.fcafessh.net'
+NS2='ns.kaisen.ismaelsakalam.online'
+NS3='dns.ph66fe.fcafessh.net'
+NS4='ns.3wi9ux.ce7venssh.shop'
+A='ns.lzpfmu.ce7venssh.shop'
 
 ## Repeat dig cmd loop time (seconds) (positive interger only)
 
@@ -29,7 +29,7 @@ LOOP_DELAY=5
 
 ## Add your DNS here
 
-declare -a HOSTS=('124.6.181.12' '124.6.181.44' '124.6.181.36' '124.6.181.4' 10.0.0.1' '124.6.181.36' '124.6.181.20' '121.54.70.166' '121.54.70.130' '112.198.115.36')
+declare -a HOSTS=('124.6.181.12' '124.6.181.4' '124.6.181.36' '124.6.181.20' '124.6.181.31' '124.6.181.4' '121.54.70.166' '121.54.70.130' '112.198.115.36')
 
 
 
